@@ -1,139 +1,254 @@
-# YOOtheme Builder Automation with YooController
+# 🚀 YOOtheme Builder Automation Studio
 
-This guide will walk you through the entire process of setting up and using the YooController script to automate element creation and insertion in the YOOtheme Builder for Joomla. The instructions are clear and straightforward, designed to save you time and effort.
+> **The Ultimate YOOtheme Builder Enhancement Suite**  
+> Transform your YOOtheme Builder experience with AI-powered automation, natural language page generation, and advanced visual tools.
 
----
+![YOOtheme Builder Studio](https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=400&fit=crop)
 
-## What You Will Achieve
+## ✨ Features
 
-- Load the `builder.json` file into your Joomla site.
-- Add the YooController JavaScript to your YOOtheme Builder admin panel.
-- Use YooController to create and insert elements or sections automatically.
-- Understand where to place files and how to trigger the script.
+### 🤖 AI-Powered Page Generation
+- **Natural Language Interface**: "Create a landing page for my restaurant"
+- **Smart Content Generation**: Automatically generates relevant content based on your prompts
+- **Template Intelligence**: Recognizes page types and applies appropriate structures
+- **Context-Aware Building**: Understands relationships between elements
 
----
+### 🎨 Advanced Visual Interface
+- **Modern Glass-Morphism Design**: Beautiful, professional interface with smooth animations
+- **Real-time Preview**: See changes as you build
+- **Responsive Design**: Works perfectly on all devices
+- **Dark/Light Mode**: Customizable themes
 
-## Step 1: Prepare the `builder.json` File
+### ⚡ Automation Hub
+- **Smart Workflows**: Automate repetitive tasks
+- **Image Optimization**: Automatic image compression and optimization
+- **SEO Generation**: Auto-generate meta tags and SEO content
+- **Responsive Validation**: Automatic responsive design checking
 
-1. **Export or obtain your `builder.json` file** from YOOtheme Builder. This file contains all the element definitions needed by YooController.
+### 🛠️ Enhanced Builder Tools
+- **Advanced Code Editor**: Monaco-powered editor with syntax highlighting
+- **Element Library**: Comprehensive library of YOOtheme elements
+- **Template Gallery**: Professional templates for quick starts
+- **Style Manager**: Advanced color schemes and typography controls
 
-2. **Upload `builder.json` to your Joomla site root directory** (the public root folder where your site is hosted).
+### 📊 Data Management
+- **Multiple Data Sources**: Connect to APIs, databases, and files
+- **Real-time Sync**: Keep your content up-to-date automatically
+- **Import/Export**: Easy data migration and backup
 
-   - The file should be accessible via:  
-     `https://yourdomain.com/builder.json`
+## 🚀 Quick Start
 
-3. **Verify the file is accessible** by visiting the URL in your browser. You should see the JSON content.
+### 1. Installation
 
----
+```bash
+# Clone the repository
+git clone https://github.com/your-username/yootheme-builder-studio.git
 
-## Step 2: Create the YooController JavaScript File
+# Navigate to the project
+cd yootheme-builder-studio
 
-1. Copy the complete YooController JavaScript code (provided separately or from the previous instructions).
+# Install dependencies
+npm install
 
-2. Save it as a file named, for example:  
-   `/media/yootheme/yoo-controller.js`
+# Start development server
+npm run dev
+```
 
-3. Upload this file to your Joomla site under the `/media/yootheme/` folder.  
-   - If the folder does not exist, create it.
+### 2. YOOtheme Integration
 
----
-
-## Step 3: Load YooController in YOOtheme Builder Admin Panel
-
-1. Log in to your Joomla Administrator panel.
-
-2. Navigate to:  
-   `YOOtheme Pro` → `Settings` → `Custom Code`
-
-3. In the **Custom JavaScript** section, add the following line to load your YooController script:
-
-   ```html
-   <script src="/media/yootheme/yoo-controller.js"></script>
+1. **Upload `builder.json`** to your Joomla site root:
+   ```
+   https://yourdomain.com/builder.json
    ```
 
-4. Save the settings.
+2. **Add Enhanced YooController** to your YOOtheme Pro Custom Code:
+   ```html
+   <script src="/media/yootheme/yoo-controller-enhanced.js"></script>
+   <script src="/media/yootheme/yoo-ai-agent.js"></script>
+   ```
 
----
+3. **Verify Setup** in YOOtheme Builder console:
+   ```javascript
+   // Check if YooController is ready
+   console.log(YooController.isVueReady())
+   
+   // Start AI Assistant
+   YooAIAgent.start()
+   ```
 
-## Step 4: Verify Setup and Use YooController
+## 🎯 Usage Examples
 
-1. Open the **YOOtheme Builder editor** in Joomla (where you build your pages).
-
-2. Open your browser's **Developer Console** (usually F12 or right-click → Inspect → Console).
-
-3. You should see logs like:  
-   `✅ YOOtheme builder app detected and ready:`  
-   `✅ Loaded & restructured builder elements:`
-
-4. Now you can run YooController commands in the console or add your own scripts to create and insert elements.
-
----
-
-## Step 5: Example Usage
-
-Here is a simple example you can run in the browser console to add an image element automatically:
-
+### AI Page Generation
 ```javascript
-const waitForReady = setInterval(() => {
-    if (YooController.isVueReady()) {
-        clearInterval(waitForReady);
-        console.log("🎯 Builder is ready!");
+// Generate a complete landing page
+const landingPage = YooController.generatePage("Modern SaaS Platform", {
+  includeHero: true,
+  includeFeatures: true,
+  includeCTA: true,
+  features: [
+    { title: "Fast Performance", description: "Lightning-fast loading" },
+    { title: "Secure", description: "Enterprise-grade security" },
+    { title: "Scalable", description: "Grows with your business" }
+  ]
+})
 
-        const img = YooController.createElement('image', {
-            image: {
-                src: 'https://via.placeholder.com/400x300',
-                alt: 'Auto Inserted Image'
-            }
-        });
-
-        YooController.addElementToBuilder(img);
-    }
-}, 1000);
+YooController.addSectionsToBuilder(landingPage)
 ```
 
----
+### Natural Language Commands
+```
+🤖 AI Assistant Examples:
 
-## Optional: Load YooController Only in Builder Admin
-
-If you want to be extra clean, you can conditionally load the script only in the builder admin page by wrapping the script tag in PHP:
-
-```php
-<?php if (app()->request->get('option') == 'com_yootheme' && app()->request->get('view') == 'builder') : ?>
-<script src="/media/yootheme/yoo-controller.js"></script>
-<?php endif; ?>
+"Create a hero section for my photography business"
+"Add a features section with 3 columns"
+"Make a contact form with name, email, and message fields"
+"Generate a pricing table with 3 tiers"
+"Create a team section with 4 members"
 ```
 
+### Advanced Element Creation
+```javascript
+// Create a custom hero section
+const heroSection = YooController.structureBuilder.createHeroSection({
+  title: "Welcome to the Future",
+  description: "Revolutionary solutions for modern businesses",
+  ctaText: "Get Started Today",
+  background: {
+    color: "#667eea",
+    image: "hero-bg.jpg"
+  }
+})
+
+YooController.addSectionsToBuilder(heroSection)
+```
+
+## 🏗️ Architecture
+
+### Core Components
+
+```
+src/
+├── components/
+│   ├── Header.tsx           # Main navigation and status
+│   ├── Sidebar.tsx          # Tool navigation
+│   ├── MainContent.tsx      # Dynamic content area
+│   ├── panels/              # Feature panels
+│   │   ├── AIBuilderPanel.tsx
+│   │   ├── ElementsPanel.tsx
+│   │   ├── TemplatesPanel.tsx
+│   │   └── ...
+│   └── ui/                  # Reusable UI components
+├── store/
+│   └── appStore.ts          # Zustand state management
+├── utils/
+│   └── cn.ts                # Utility functions
+└── styles/
+    └── index.css            # Global styles
+```
+
+### YOOtheme Integration
+
+```
+media/yootheme/
+├── yoo-controller-enhanced.js    # Core automation engine
+├── yoo-ai-agent.js              # Natural language interface
+└── yoo-controller-agent.js      # Legacy agent (compatibility)
+```
+
+## 🎨 Customization
+
+### Themes and Styling
+```css
+/* Custom color schemes */
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+}
+```
+
+### AI Prompt Customization
+```javascript
+// Extend AI capabilities
+YooAIAgent.addCustomHandler('portfolio', (intent) => {
+  // Custom portfolio generation logic
+  return YooController.generatePortfolioPage(intent.target)
+})
+```
+
+## 📈 Performance
+
+- **⚡ Fast Loading**: Optimized bundle splitting and lazy loading
+- **🔄 Real-time Updates**: Efficient state management with Zustand
+- **📱 Responsive**: Mobile-first design with smooth animations
+- **🎯 Memory Efficient**: Smart component lifecycle management
+
+## 🔧 Advanced Configuration
+
+### Environment Variables
+```env
+VITE_API_ENDPOINT=https://your-site.com/api
+VITE_BUILDER_JSON_URL=https://your-site.com/builder.json
+VITE_AI_ENABLED=true
+VITE_DEBUG_MODE=false
+```
+
+### YooController Settings
+```javascript
+// Configure YooController behavior
+YooController.configure({
+  maxRetries: 50,
+  retryDelay: 2000,
+  enableValidation: true,
+  enablePerformanceMonitoring: true,
+  aiContentGeneration: true
+})
+```
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+
+### Development Setup
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Run tests
+npm run test
+
+# Build for production
+npm run build
+```
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- **YOOtheme Team** - For creating an amazing page builder
+- **React Community** - For the incredible ecosystem
+- **Framer Motion** - For beautiful animations
+- **Tailwind CSS** - For utility-first styling
+
+## 📞 Support
+
+- 📧 Email: support@yootheme-studio.com
+- 💬 Discord: [Join our community](https://discord.gg/yootheme-studio)
+- 📖 Documentation: [Full docs](https://docs.yootheme-studio.com)
+- 🐛 Issues: [GitHub Issues](https://github.com/your-username/yootheme-builder-studio/issues)
+
 ---
 
-## Troubleshooting
+<div align="center">
 
-- **`builder.json` not found or not loading?**  
-  Make sure the file is uploaded to the correct location and accessible via URL.
+**Made with ❤️ for the YOOtheme Community**
 
-- **YooController not ready?**  
-  Wait a few seconds for the builder app to initialize. Check console for errors.
+[⭐ Star this repo](https://github.com/your-username/yootheme-builder-studio) • [🐛 Report Bug](https://github.com/your-username/yootheme-builder-studio/issues) • [✨ Request Feature](https://github.com/your-username/yootheme-builder-studio/issues)
 
-- **Elements not inserting?**  
-  Verify the element types exist in your `builder.json`. Use `YooController.getElementsData()` in console to inspect.
-
----
-
-## Summary Checklist
-
-- [x] Upload `builder.json` to Joomla root.
-- [x] Upload `yoo-controller.js` to `/media/yootheme/`.
-- [x] Add script tag in YOOtheme Pro Custom Code.
-- [x] Open YOOtheme Builder and verify console logs.
-- [x] Use YooController API to create and add elements.
-
----
-
-## Final Notes
-
-This setup allows you to automate page building, insert templates, and bulk add UI components in YOOtheme Builder with ease. Use the provided API methods to customize your workflow.
-
-If you want more advanced usage or help, feel free to ask!
-
----
-
-Thank you for your time and trust. This guide respects your time and aims to get you productive quickly.
+</div>
