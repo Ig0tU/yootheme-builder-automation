@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Database, Upload, Download, Refresh, Search } from 'lucide-react'
+import { Database, Upload, Download, RefreshCw as Refresh, Search } from 'lucide-react'
 import Button from '../ui/Button'
 import Card from '../ui/Card'
 import Input from '../ui/Input'
