@@ -333,7 +333,7 @@ if (window.YooController && window.YooController.isVueReady()) {
                 >
                   {isGenerating ? (
                     <>
-                      <LoadingSpinner size="sm" color="white" />
+                      <LoadingSpinner size="sm\" color="white" />
                       <span className="ml-2">AI is thinking...</span>
                     </>
                   ) : (
